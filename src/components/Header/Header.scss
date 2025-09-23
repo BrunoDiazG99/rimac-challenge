@@ -3,11 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2px 120px;
-  width: 100%;
-  max-width: 1360px;
+  width: 100vw;
   height: 64px;
-  margin: 0 auto;
+  padding: 2px 120px;
+  box-sizing: border-box;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
 
   // Responsive adjustments
   @media (max-width: 1200px) {
