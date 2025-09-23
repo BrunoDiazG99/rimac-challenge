@@ -137,44 +137,44 @@ export const Form = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // // Validate form
-    // const newErrors: FormErrors = {
-    //   docNumber: validateDocNumber(formData.docNumber, formData.docType),
-    //   phoneNumber: validatePhoneNumber(formData.phoneNumber),
-    //   privacyPolicy: !checkboxes.privacyPolicy,
-    //   commercialPolicy: !checkboxes.commercialPolicy,
-    // };
+    // Validate form
+    const newErrors: FormErrors = {
+      docNumber: validateDocNumber(formData.docNumber, formData.docType),
+      phoneNumber: validatePhoneNumber(formData.phoneNumber),
+      privacyPolicy: !checkboxes.privacyPolicy,
+      commercialPolicy: !checkboxes.commercialPolicy,
+    };
 
-    // setErrors(newErrors);
+    setErrors(newErrors);
 
-    // // Check if there are any errors
-    // const hasErrors = Object.entries(newErrors).some(([key, value]) => {
-    //   if (key === "docNumber" || key === "phoneNumber") {
-    //     return value !== "";
-    //   }
-    //   return value === true; // For boolean checkbox errors
-    // });
-    // if (hasErrors) {
-    //   setIsSubmitting(false);
-    //   return;
-    // }
+    // Check if there are any errors
+    const hasErrors = Object.entries(newErrors).some(([key, value]) => {
+      if (key === "docNumber" || key === "phoneNumber") {
+        return value !== "";
+      }
+      return value === true; // For boolean checkbox errors
+    });
+    if (hasErrors) {
+      setIsSubmitting(false);
+      return;
+    }
 
-    // // Validate user against allowed users
-    // const isValidUser = validateUser(
-    //   formData.docType,
-    //   formData.docNumber,
-    //   formData.phoneNumber
-    // );
+    // Validate user against allowed users
+    const isValidUser = validateUser(
+      formData.docType,
+      formData.docNumber,
+      formData.phoneNumber
+    );
 
-    // if (!isValidUser) {
-    //   setErrors((prev) => ({
-    //     ...prev,
-    //     docNumber: "* Usuario no encontrado",
-    //     phoneNumber: "* Usuario no encontrado",
-    //   }));
-    //   setIsSubmitting(false);
-    //   return;
-    // }
+    if (!isValidUser) {
+      setErrors((prev) => ({
+        ...prev,
+        docNumber: "* Usuario no encontrado",
+        phoneNumber: "* Usuario no encontrado",
+      }));
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       await fetchUserData();
@@ -189,9 +189,13 @@ export const Form = () => {
 
   return (
     <section className="form-container">
-      <div className="form-content">
+      <div className="form-content container">
         <div className="hero-image">
-          <div className="image-placeholder">Imagen Hero</div>
+          <img
+            src={`${import.meta.env.BASE_URL}hero-image.webp`}
+            alt="Hero"
+            className="hero-img"
+          />
         </div>
         <div className="form-section">
           <div className="form-area">
@@ -204,40 +208,43 @@ export const Form = () => {
 
             <form className="insurance-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <select
-                  className="doc-type-select"
-                  value={formData.docType}
-                  onChange={(e) =>
-                    handleInputChange(
-                      "docType",
-                      e.target.value as "DNI" | "RUC"
-                    )
-                  }
-                  disabled={isSubmitting}
-                >
-                  <option value="DNI">DNI</option>
-                  <option value="RUC">RUC</option>
-                </select>
-                <div className="input-with-label">
-                  <label htmlFor="docNumber">Nro. de documento</label>
-                  <input
-                    type="text"
-                    id="docNumber"
-                    value={formData.docNumber}
+                <div className="form-group-docType">
+                  <select
+                    name="docType"
+                    className="doc-type-select"
+                    value={formData.docType}
                     onChange={(e) =>
-                      handleInputChange("docNumber", e.target.value)
+                      handleInputChange(
+                        "docType",
+                        e.target.value as "DNI" | "RUC"
+                      )
                     }
-                    className={errors.docNumber ? "error" : ""}
-                    placeholder={
-                      formData.docType === "DNI" ? "12345678" : "12345678901"
-                    }
-                    maxLength={formData.docType === "DNI" ? 8 : 11}
                     disabled={isSubmitting}
-                  />
-                  {errors.docNumber && (
-                    <span className="error-message">{errors.docNumber}</span>
-                  )}
+                  >
+                    <option value="DNI">DNI</option>
+                    <option value="RUC">RUC</option>
+                  </select>
+                  <div className="input-with-label">
+                    <label htmlFor="docNumber">Nro. de documento</label>
+                    <input
+                      type="text"
+                      id="docNumber"
+                      value={formData.docNumber}
+                      onChange={(e) =>
+                        handleInputChange("docNumber", e.target.value)
+                      }
+                      className={errors.docNumber ? "error" : ""}
+                      placeholder={
+                        formData.docType === "DNI" ? "12345678" : "12345678901"
+                      }
+                      maxLength={formData.docType === "DNI" ? 8 : 11}
+                      disabled={isSubmitting}
+                    />
+                  </div>
                 </div>
+                {errors.docNumber && (
+                  <span className="error-message">{errors.docNumber}</span>
+                )}
               </div>
 
               <div className="form-group">

@@ -49,6 +49,11 @@
     
     .plan-icon {
       margin-left: 16px;
+      
+      .plan-icon-img {
+        display: block;
+        object-fit: contain;
+      }
     }
   }
   

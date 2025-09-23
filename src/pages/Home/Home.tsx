@@ -6,7 +6,7 @@ import { Header } from "../../components/Header";
 export function HomePage() {
   return (
     <div className="home-page">
-      <Header />
+      <Header transparent />
       <main className="main-content">
         <Form />
       </main>

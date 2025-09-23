@@ -38,10 +38,22 @@ export function PlansPage() {
 
   const handlePlanSelect = (planName: string, planPrice: number) => {
     console.log("Selecting: ", planName, planPrice);
+    if (selectedInsuranceType === "para-alguien-mas") {
+      planPrice *= 0.95; // Apply 5% discount
+    }
     setSelectedPlan(planName, planPrice);
     navigate({
       to: "/resume",
     });
+  };
+
+  const getPlanType = (planName: string): "basic" | "clinic" => {
+    // Determine plan type based on plan name
+    const lowerName = planName.toLowerCase();
+    if (lowerName.includes("clinica") || lowerName.includes("clínica")) {
+      return "clinic";
+    }
+    return "basic"; // Default to basic for other plans
   };
 
   const handleBackToHome = () => {
@@ -55,7 +67,7 @@ export function PlansPage() {
 
       {/* Steps Band */}
       <div className="steps-band">
-        <div className="steps-container">
+        <div className="steps-container container">
           <div className="step active">
             <div className="step-number">1</div>
             <span className="step-text">Planes y coberturas</span>
@@ -69,7 +81,7 @@ export function PlansPage() {
       </div>
 
       <main className="main-content">
-        <div className="plans-container">
+        <div className="plans-container container">
           {/* Back Button */}
           <button
             type="button"
@@ -108,12 +120,14 @@ export function PlansPage() {
             <InsuranceInfoCard
               title="Para mí"
               description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
+              iconType="self"
               isSelected={selectedInsuranceType === "para-mi"}
               onClick={() => handleInsuranceTypeSelect("para-mi")}
             />
             <InsuranceInfoCard
               title="Para alguien más"
               description="Realiza una cotización para uno de tus familiares o cualquier persona."
+              iconType="others"
               isSelected={selectedInsuranceType === "para-alguien-mas"}
               onClick={() => handleInsuranceTypeSelect("para-alguien-mas")}
             />
@@ -128,6 +142,7 @@ export function PlansPage() {
                   name={plan.name}
                   price={plan.price}
                   descriptions={plan.description}
+                  planType={getPlanType(plan.name)}
                   onSelect={() => handlePlanSelect(plan.name, plan.price)}
                 />
               ))}

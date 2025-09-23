@@ -95,3 +95,153 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* Shared Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 24px;
+
+  &:hover {
+    background: #f3f4f6;
+    color: var(--text-primary, #111827);
+  }
+}
+
+.modal-title {
+  font-family: var(--font-home);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  margin: 0 0 16px 0;
+}
+
+.modal-text {
+  font-family: var(--font-app);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary, #6b7280);
+  margin: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+}
+
+.modal-body {
+  p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: #374151;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Shared Container Styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+/* Shared Back Button Styles */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--blueberry600);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 32px;
+  font-family: var(--font-app);
+  transition: none;
+  
+  &:hover {
+    text-decoration: underline;
+    background: none !important;
+    color: var(--blueberry600) !important;
+  }
+  
+  .back-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+/* Shared Main Content Styles */
+.main-content {
+  flex: 1;
+  background-color: #FAFBFF;
+}
+
+/* Responsive Breakpoints */
+/* Mobile: max-width: 480px */
+/* Tablet: max-width: 768px */  
+/* Desktop: max-width: 1200px */

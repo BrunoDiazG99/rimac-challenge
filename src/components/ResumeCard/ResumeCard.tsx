@@ -17,12 +17,12 @@ export const ResumeCard = ({ userData, selectedPlan }: ResumeCardProps) => {
       {/* User Info */}
       <div className="user-info">
         <div className="family-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm9 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-2.5 3h11l1.5 6H4l1.5-6z"
-              fill="currentColor"
-            />
-          </svg>
+          <img
+            src={`${import.meta.env.BASE_URL}family-icon.svg`}
+            alt="Family icon"
+            width="24"
+            height="24"
+          />
         </div>
         <span className="user-name">{fullName}</span>
       </div>

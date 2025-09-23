@@ -1,32 +1,36 @@
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100vw;
-  min-height: 106px;
-  padding: 32px 120px;
+  height: 106px;
+  padding: 32px 20px;
   box-sizing: border-box;
   background: #03050F;
   color: white;
   font-family: var(--font-home);
 
-  // Responsive adjustments
-  @media (max-width: 1200px) {
-    padding: 32px 60px;
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
+  // Responsive adjustments
   @media (max-width: 768px) {
-    padding: 24px 20px;
-    min-height: 80px;
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
+    height: 80px;
+    
+    .footer-content {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
   }
 
   @media (max-width: 480px) {
-    padding: 20px 16px;
-    min-height: 70px;
+    height: 70px;
   }
 
   .logo {
@@ -41,7 +45,7 @@
 
   .trademark {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
     
     @media (max-width: 768px) {
       font-size: 0.75rem;

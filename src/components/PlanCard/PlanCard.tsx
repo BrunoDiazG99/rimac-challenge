@@ -5,6 +5,7 @@ interface PlanCardProps {
   price: number;
   descriptions: string[];
   onSelect: () => void;
+  planType?: "basic" | "clinic";
 }
 
 export const PlanCard = ({
@@ -12,7 +13,16 @@ export const PlanCard = ({
   price,
   descriptions,
   onSelect,
+  planType,
 }: PlanCardProps) => {
+  const getPlanIcon = () => {
+    if (planType === "basic") {
+      return `${import.meta.env.BASE_URL}insurance-plan-logo-1.svg`;
+    } else if (planType === "clinic") {
+      return `${import.meta.env.BASE_URL}insurance-plan-logo-2.svg`;
+    }
+    return null;
+  };
   return (
     <div className="plan-card">
       <div className="plan-header">
@@ -22,21 +32,13 @@ export const PlanCard = ({
           <div className="plan-price">${price} al mes</div>
         </div>
         <div className="plan-icon">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path
-              d="M8 32h24l-2-16H10l-2 16z"
-              fill="#6B7280"
-              stroke="#6B7280"
-              strokeWidth="2"
-            />
-            <path
-              d="M10 16V12c0-4.418 3.582-8 8-8h4c4.418 0 8 3.582 8 8v4"
-              stroke="#6B7280"
-              strokeWidth="2"
-              fill="none"
-            />
-            <rect x="16" y="20" width="8" height="4" fill="#ffffff" />
-          </svg>
+          <img
+            src={getPlanIcon()!}
+            alt={`${name} plan icon`}
+            className="plan-icon-img"
+            width="48"
+            height="48"
+          />
         </div>
       </div>
 

@@ -26,7 +26,7 @@ export function ResumePage() {
         <Header />
         <StepsHeader currentStep={2} />
         <main className="main-content">
-          <div className="resume-container">
+          <div className="resume-container container">
             <div className="error-message">
               <h2>Información no encontrada</h2>
               <p>Por favor, complete el proceso desde el inicio.</p>
@@ -50,7 +50,7 @@ export function ResumePage() {
       <StepsHeader currentStep={2} />
 
       <main className="main-content">
-        <div className="resume-container">
+        <div className="resume-container container">
           {/* Back Button */}
           <button
             type="button"

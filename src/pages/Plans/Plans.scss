@@ -14,9 +14,6 @@
   z-index: 100;
   
   .steps-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,38 +60,15 @@
 
 .main-content {
   flex: 1;
-  background-color: #FAFBFF;
 }
 
 .plans-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 6rem;
+  padding: 2rem 0;
 }
 
 .back-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  color: var(--blueberry600);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 8px 0;
-  margin-bottom: 32px;
-  
   &:hover {
     text-decoration: underline;
-  }
-  
-  .back-icon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
@@ -145,7 +119,6 @@
     padding: 16px 0;
     
     .steps-container {
-      padding: 0 16px;
       gap: 8px;
     }
     
@@ -167,7 +140,7 @@
   }
   
   .plans-container {
-    padding: 0 6rem;
+    padding: 0;
   }
   
   .plans-header {
