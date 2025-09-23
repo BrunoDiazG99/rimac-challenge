@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 120px;
+  width: 100%;
+  max-width: 1360px;
+  height: 106px;
+  margin: 0 auto;
+  background: #03050F;
+  color: white;
+
+  // Responsive adjustments
+  @media (max-width: 1200px) {
+    padding: 32px 60px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+    height: auto;
+    min-height: 80px;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+    min-height: 70px;
+  }
+
+  .logo {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: white;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .trademark {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+    }
+  }
+}
