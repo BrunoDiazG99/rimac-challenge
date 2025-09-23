@@ -1,74 +1,194 @@
 .plans-page {
   min-height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+}
+
+.steps-band {
+  background-color: var(--neutrals2);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--neutrals4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   
-  .main-content {
-    flex: 1;
-    width: 100%;
-    background: #f8fafc;
-    padding: 40px 120px;
-    box-sizing: border-box;
+  .steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7981B2;
+    font-size: 16px;
+    font-weight: 400;
     
-    @media (max-width: 1200px) {
-      padding: 40px 60px;
-    }
-
-    @media (max-width: 768px) {
-      padding: 40px 20px;
-    }
-
-    @media (max-width: 480px) {
-      padding: 40px 16px;
+    &.active {
+      color: #03050F;
+      font-weight: 700;
     }
     
-    .plans-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #C5CBE0;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    &.active .step-number {
+      background-color: var(--blueberry600);
+    }
+  }
+  
+  .step-separator {
+    color: #7981B2;
+    font-size: 12px;
+    margin: 0 8px;
+  }
+}
+
+.main-content {
+  flex: 1;
+  background-color: #FAFBFF;
+}
+
+.plans-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--blueberry600);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 32px;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  .back-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.plans-header {
+  margin-bottom: 32px;
+  text-align: center;
+  
+  .plans-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #03050F;
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+  }
+  
+  .plans-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #03050F;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.insurance-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+  justify-items: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+  justify-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .steps-band {
+    padding: 16px 0;
+    
+    .steps-container {
+      padding: 0 16px;
+      gap: 8px;
+    }
+    
+    .step {
+      font-size: 14px;
+      gap: 6px;
       
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-align: center;
-        
-        @media (max-width: 768px) {
-          font-size: 2rem;
-        }
-      }
-      
-      p {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: #6b7280;
-        font-size: 1.125rem;
-      }
-      
-      .plans-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-        
-        .plan-card {
-          background: white;
-          border: 2px solid #e5e7eb;
-          border-radius: 12px;
-          padding: 2rem;
-          text-align: center;
-          font-size: 1.25rem;
-          font-weight: 600;
-          color: #374151;
-          transition: all 0.2s ease;
-          
-          &:hover {
-            border-color: #e11d48;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          }
-        }
+      .step-number {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
       }
     }
+    
+    .step-separator {
+      font-size: 10px;
+      margin: 0 4px;
+    }
+  }
+  
+  .plans-container {
+    padding: 24px 16px;
+  }
+  
+  .plans-header {
+    margin-bottom: 24px;
+    
+    .plans-title {
+      font-size: 24px;
+    }
+    
+    .plans-description {
+      font-size: 14px;
+    }
+  }
+  
+  .insurance-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
   }
 }

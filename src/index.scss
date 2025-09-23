@@ -20,10 +20,17 @@
   --background-primary: #ffffff;
   --background-secondary: #f8fafc;
   --gray1: #03050F;
+  --neutrals2: #EDEFFC;
+  --blueberry600: #4F4FFF;
+  --neutrals4: #D7DBF5;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.hidden{
+  display: none;
 }
 
 html, body {
@@ -39,12 +46,12 @@ body {
   color: var(--text-primary);
 }
 
-#root {
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+// #root {
+//   width: 100vw;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+// }
 
 a {
   font-weight: 500;

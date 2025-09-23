@@ -1,7 +1,9 @@
 import "./Form.scss";
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { validateUser } from "../../utils/allowedUsers";
+import { useAppStore } from "../../store/useAppStore";
+import { calculateAge } from "../../utils/utils.ts";
 
 interface FormData {
   docType: "DNI" | "RUC";
@@ -17,6 +19,9 @@ interface FormErrors {
 }
 
 export const Form = () => {
+  const navigate = useNavigate();
+  const { setUserData, setPlans } = useAppStore();
+
   const [formData, setFormData] = useState<FormData>({
     docType: "DNI",
     docNumber: "",
@@ -108,9 +113,18 @@ export const Form = () => {
       console.log("User Data:", userData);
       console.log("Plans Data:", plansData);
 
-      // Store data in sessionStorage or context for later use
-      sessionStorage.setItem("userData", JSON.stringify(userData));
-      sessionStorage.setItem("plansData", JSON.stringify(plansData));
+      const userAge = calculateAge(userData.birthDay);
+
+      setUserData({
+        name: userData.name,
+        lastName: userData.lastName,
+        birthday: userData.birthDay,
+        docType: formData.docType,
+        docNumber: formData.docNumber,
+        phoneNumber: formData.phoneNumber,
+        age: userAge,
+      });
+      setPlans(plansData.list || []);
 
       return { userData, plansData };
     } catch (error) {
@@ -164,7 +178,7 @@ export const Form = () => {
 
     try {
       await fetchUserData();
-      // Navigation will happen automatically via Link component
+      navigate({ to: "/plans" });
     } catch (error) {
       console.error("Error during submission:", error);
       // Handle error (could show a toast or error message)
@@ -286,14 +300,14 @@ export const Form = () => {
                 Aplican Términos y Condiciones
               </button>
 
-              <Link
-                to="/plans"
+              <button
+                type="submit"
                 className={`submit-button ${isSubmitting ? "loading" : ""}`}
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
               >
                 {isSubmitting && <div className="spinner"></div>}
                 {isSubmitting ? "Cotizando..." : "Cotiza aquí"}
-              </Link>
+              </button>
             </form>
           </div>
         </div>

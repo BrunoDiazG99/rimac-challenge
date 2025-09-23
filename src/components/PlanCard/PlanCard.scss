@@ -1,0 +1,110 @@
+.plan-card {
+  width: 288px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    
+    .plan-info {
+      flex: 1;
+      
+      .plan-name {
+        font-size: 24px;
+        font-weight: 900;
+        color: #1f2937;
+        margin: 0 0 24px 0;
+      }
+      
+      .cost-label {
+        font-family: 'Lato', sans-serif;
+        font-size: 12px;
+        font-weight: 900;
+        color: #6b7280;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+      }
+      
+      .plan-price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+      }
+    }
+    
+    .plan-icon {
+      margin-left: 16px;
+    }
+  }
+  
+  .plan-divider {
+    height: 1px;
+    background: var(--neutrals4);
+    margin: 20px 0;
+  }
+  
+  .plan-features {
+    margin-bottom: 32px;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #374151;
+        line-height: 1.4;
+        
+        &::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: #6b7280;
+          font-weight: bold;
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  .select-button {
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
