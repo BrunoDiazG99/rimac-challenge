@@ -8,6 +8,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 250px;
+  font-family: var(--font-app);
   
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

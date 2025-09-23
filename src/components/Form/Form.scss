@@ -3,6 +3,7 @@
   min-height: calc(100vh - 170px); // Account for header and footer
   box-sizing: border-box;
   background: #f8fafc;
+  font-family: var(--font-home);
   
   .form-content {
     display: flex;
