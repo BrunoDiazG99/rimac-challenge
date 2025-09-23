@@ -1,0 +1,83 @@
+.steps-band {
+  background-color: var(--neutrals2);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--neutrals4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  .steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7981B2;
+    font-size: 16px;
+    font-weight: 400;
+    
+    &.active {
+      color: #03050F;
+      font-weight: 700;
+    }
+    
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #C5CBE0;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    &.active .step-number {
+      background-color: var(--blueberry600);
+    }
+  }
+  
+  .step-separator {
+    color: #7981B2;
+    font-size: 12px;
+    margin: 0 8px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .steps-band {
+    padding: 16px 0;
+    
+    .steps-container {
+      padding: 0 16px;
+      gap: 8px;
+    }
+    
+    .step {
+      font-size: 14px;
+      gap: 6px;
+      
+      .step-number {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+      }
+    }
+    
+    .step-separator {
+      font-size: 10px;
+      margin: 0 4px;
+    }
+  }
+}

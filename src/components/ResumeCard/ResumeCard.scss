@@ -1,0 +1,150 @@
+.resume-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: none;
+  
+  .calculated-prices {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    color: #6b7280;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    .family-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+    }
+    
+    .user-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f2937;
+    }
+  }
+  
+  .resume-divider {
+    height: 1px;
+    background: var(--neutrals4, #D7DBF5);
+    margin: 4px 0;
+  }
+  
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+    
+    .doc-info,
+    .phone-info,
+    .plan-name,
+    .plan-cost {
+      font-size: 14px;
+      font-weight: 400;
+      color: #374151;
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    .plan-name {
+      font-weight: 600;
+    }
+    
+    .plan-cost {
+      font-weight: 700;
+      color: #1f2937;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-card {
+    padding: 24px;
+    margin: 0 16px;
+    gap: 12px;
+    
+    .calculated-prices {
+      font-size: 9px;
+    }
+    
+    .user-info {
+      gap: 10px;
+      
+      .family-icon {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .user-name {
+        font-size: 14px;
+      }
+    }
+    
+    .info-section {
+      gap: 3px;
+      
+      .section-title {
+        font-size: 14px;
+      }
+      
+      .doc-info,
+      .phone-info,
+      .plan-name,
+      .plan-cost {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-card {
+    padding: 20px;
+    margin: 0 12px;
+    
+    .calculated-prices {
+      font-size: 8px;
+    }
+    
+    .user-name {
+      font-size: 13px;
+    }
+    
+    .info-section {
+      .section-title {
+        font-size: 13px;
+      }
+      
+      .doc-info,
+      .phone-info,
+      .plan-name,
+      .plan-cost {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ export function PlansPage() {
     plans,
     selectedInsuranceType,
     setSelectedInsuranceType,
+    setSelectedPlan,
     resetStore,
   } = useAppStore();
 
@@ -35,8 +36,9 @@ export function PlansPage() {
     filterPlans();
   };
 
-  const handlePlanSelect = (planName: string) => {
-    console.log(planName);
+  const handlePlanSelect = (planName: string, planPrice: number) => {
+    console.log("Selecting: ", planName, planPrice);
+    setSelectedPlan(planName, planPrice);
     navigate({
       to: "/resume",
     });
@@ -126,7 +128,7 @@ export function PlansPage() {
                   name={plan.name}
                   price={plan.price}
                   descriptions={plan.description}
-                  onSelect={() => handlePlanSelect(plan.name)}
+                  onSelect={() => handlePlanSelect(plan.name, plan.price)}
                 />
               ))}
             </div>

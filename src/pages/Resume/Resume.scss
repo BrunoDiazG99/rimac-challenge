@@ -1,89 +1,110 @@
 .resume-page {
   min-height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #FAFBFF;
+}
+
+.resume-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--blueberry600);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 32px;
   
-  .main-content {
-    flex: 1;
-    width: 100%;
-    background: #f8fafc;
-    padding: 40px 120px;
-    box-sizing: border-box;
-    
-    @media (max-width: 1200px) {
-      padding: 40px 60px;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  .back-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
-    @media (max-width: 768px) {
-      padding: 40px 20px;
-    }
+.resume-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #03050F;
+  margin: 0 0 32px 0;
+  line-height: 1.2;
+  text-align: left;
+}
 
-    @media (max-width: 480px) {
-      padding: 40px 16px;
-    }
+.error-message {
+  text-align: center;
+  padding: 40px;
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #03050F;
+    margin: 0 0 16px 0;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0 0 24px 0;
+  }
+  
+  .back-button {
+    background: var(--blueberry600);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
     
-    .resume-container {
-      max-width: 800px;
-      margin: 0 auto;
-      
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        
-        @media (max-width: 768px) {
-          font-size: 2rem;
-        }
-      }
-      
-      .resume-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
-        h2 {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-          color: #1f2937;
-          border-bottom: 2px solid #e5e7eb;
-          padding-bottom: 0.5rem;
-        }
-        
-        .plan-details {
-          p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            text-align: center;
-          }
-          
-          .summary-items {
-            .summary-item {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 1rem 0;
-              border-bottom: 1px solid #f3f4f6;
-              
-              &:last-child {
-                border-bottom: none;
-              }
-              
-              .label {
-                font-weight: 600;
-                color: #374151;
-              }
-              
-              .value {
-                color: #6b7280;
-                font-weight: 500;
-              }
-            }
-          }
-        }
-      }
+    &:hover {
+      background: #3F3FE6;
+      text-decoration: none;
     }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-container {
+    padding: 24px 16px;
+  }
+  
+  .resume-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  
+  .back-button {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-container {
+    padding: 20px 12px;
+  }
+  
+  .resume-title {
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 }

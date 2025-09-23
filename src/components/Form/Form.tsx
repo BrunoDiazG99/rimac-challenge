@@ -137,44 +137,44 @@ export const Form = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Validate form
-    const newErrors: FormErrors = {
-      docNumber: validateDocNumber(formData.docNumber, formData.docType),
-      phoneNumber: validatePhoneNumber(formData.phoneNumber),
-      privacyPolicy: !checkboxes.privacyPolicy,
-      commercialPolicy: !checkboxes.commercialPolicy,
-    };
+    // // Validate form
+    // const newErrors: FormErrors = {
+    //   docNumber: validateDocNumber(formData.docNumber, formData.docType),
+    //   phoneNumber: validatePhoneNumber(formData.phoneNumber),
+    //   privacyPolicy: !checkboxes.privacyPolicy,
+    //   commercialPolicy: !checkboxes.commercialPolicy,
+    // };
 
-    setErrors(newErrors);
+    // setErrors(newErrors);
 
-    // Check if there are any errors
-    const hasErrors = Object.entries(newErrors).some(([key, value]) => {
-      if (key === "docNumber" || key === "phoneNumber") {
-        return value !== "";
-      }
-      return value === true; // For boolean checkbox errors
-    });
-    if (hasErrors) {
-      setIsSubmitting(false);
-      return;
-    }
+    // // Check if there are any errors
+    // const hasErrors = Object.entries(newErrors).some(([key, value]) => {
+    //   if (key === "docNumber" || key === "phoneNumber") {
+    //     return value !== "";
+    //   }
+    //   return value === true; // For boolean checkbox errors
+    // });
+    // if (hasErrors) {
+    //   setIsSubmitting(false);
+    //   return;
+    // }
 
-    // Validate user against allowed users
-    const isValidUser = validateUser(
-      formData.docType,
-      formData.docNumber,
-      formData.phoneNumber
-    );
+    // // Validate user against allowed users
+    // const isValidUser = validateUser(
+    //   formData.docType,
+    //   formData.docNumber,
+    //   formData.phoneNumber
+    // );
 
-    if (!isValidUser) {
-      setErrors((prev) => ({
-        ...prev,
-        docNumber: "* Usuario no encontrado",
-        phoneNumber: "* Usuario no encontrado",
-      }));
-      setIsSubmitting(false);
-      return;
-    }
+    // if (!isValidUser) {
+    //   setErrors((prev) => ({
+    //     ...prev,
+    //     docNumber: "* Usuario no encontrado",
+    //     phoneNumber: "* Usuario no encontrado",
+    //   }));
+    //   setIsSubmitting(false);
+    //   return;
+    // }
 
     try {
       await fetchUserData();
