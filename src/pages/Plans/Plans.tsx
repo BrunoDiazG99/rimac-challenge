@@ -11,15 +11,21 @@ type InsuranceType = "para-mi" | "para-alguien-mas" | null;
 
 export function PlansPage() {
   const navigate = useNavigate();
-  const { userData, plans, selectedInsuranceType, setSelectedInsuranceType } =
-    useAppStore();
+  const {
+    userData,
+    plans,
+    selectedInsuranceType,
+    setSelectedInsuranceType,
+    resetStore,
+  } = useAppStore();
 
   const [showPlans, setShowPlans] = useState(false);
   const [filteredPlans, setFilteredPlans] = useState<Plan[]>([]);
 
   const filterPlans = () => {
     const userAge = userData?.age || 100;
-    const filteredPlans = plans.filter((plan) => plan.age <= userAge);
+    console.log(userAge);
+    const filteredPlans = plans.filter((plan) => plan.age >= userAge);
     setFilteredPlans(filteredPlans);
     setShowPlans(true);
   };
@@ -37,6 +43,7 @@ export function PlansPage() {
   };
 
   const handleBackToHome = () => {
+    resetStore();
     navigate({ to: "/" });
   };
 
@@ -110,9 +117,9 @@ export function PlansPage() {
             />
           </div>
 
-          {/* Plans Grid */}
+          {/* Plans Container */}
           {showPlans && selectedInsuranceType && (
-            <div className="plans-grid">
+            <div className="plans-list">
               {filteredPlans.map((plan, index) => (
                 <PlanCard
                   key={index}
