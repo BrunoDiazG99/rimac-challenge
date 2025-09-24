@@ -240,7 +240,7 @@ export const Form = () => {
                       }
                       className={errors.docNumber ? "error" : ""}
                       placeholder={
-                        formData.docType === "DNI" ? "12345678" : "12345678901"
+                        formData.docType === "DNI" ? "30216147" : "12345678901"
                       }
                       maxLength={formData.docType === "DNI" ? 8 : 11}
                       disabled={isSubmitting}
@@ -262,7 +262,7 @@ export const Form = () => {
                     handleInputChange("phoneNumber", e.target.value)
                   }
                   className={errors.phoneNumber ? "error" : ""}
-                  placeholder="987654321"
+                  placeholder="5130216147"
                   maxLength={9}
                   disabled={isSubmitting}
                 />

@@ -8,6 +8,11 @@ export interface AllowedUser {
 export const allowedUsers: AllowedUser[] = [
   {
     docType: "DNI",
+    docNumber: "30216147",
+    phoneNumber: "5130216147",
+  },
+  {
+    docType: "DNI",
     docNumber: "12345678",
     phoneNumber: "987654321",
   },
