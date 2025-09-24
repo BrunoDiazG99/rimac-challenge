@@ -29,7 +29,7 @@ export const PlanCard = ({
         <div className="plan-info">
           <h3 className="plan-name">{name}</h3>
           <div className="cost-label">COSTO DEL PLAN</div>
-          <div className="plan-price">${price} al mes</div>
+          <div className="plan-price">${price.toFixed(2)} al mes</div>
         </div>
         <div className="plan-icon">
           <img

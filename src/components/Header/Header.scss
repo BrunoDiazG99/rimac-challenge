@@ -78,11 +78,11 @@
       font-weight: 700;
 
       svg {
-        color: var(--primary-color, #e11d48);
+        color: var(--text-primary, #111827);
       }
 
       &:hover {
-        color: var(--primary-color, #e11d48);
+        text-decoration: underline;
       }
 
       @media (max-width: 480px) {

@@ -25,8 +25,8 @@ export function PlansPage() {
 
   const filterPlans = () => {
     const userAge = userData?.age || 100;
-    console.log(userAge);
     const filteredPlans = plans.filter((plan) => plan.age >= userAge);
+    console.log(filteredPlans);
     setFilteredPlans(filteredPlans);
     setShowPlans(true);
   };
@@ -37,11 +37,12 @@ export function PlansPage() {
   };
 
   const handlePlanSelect = (planName: string, planPrice: number) => {
-    console.log("Selecting: ", planName, planPrice);
-    if (selectedInsuranceType === "para-alguien-mas") {
-      planPrice *= 0.95; // Apply 5% discount
-    }
-    setSelectedPlan(planName, planPrice);
+    const finalPrice =
+      selectedInsuranceType === "para-alguien-mas"
+        ? planPrice * 0.95
+        : planPrice;
+
+    setSelectedPlan(planName, finalPrice);
     navigate({
       to: "/resume",
     });
@@ -140,7 +141,11 @@ export function PlansPage() {
                 <PlanCard
                   key={index}
                   name={plan.name}
-                  price={plan.price}
+                  price={
+                    selectedInsuranceType === "para-alguien-mas"
+                      ? plan.price * 0.95
+                      : plan.price
+                  }
                   descriptions={plan.description}
                   planType={getPlanType(plan.name)}
                   onSelect={() => handlePlanSelect(plan.name, plan.price)}

@@ -33,7 +33,6 @@ interface AppState {
   selectedPlan: string | null;
   selectedPlanPrice: number;
   setSelectedPlan: (planName: string, planPrice: number) => void;
-  clearSelectedPlan: () => void;
 
   // Insurance type selection
   selectedInsuranceType: "para-mi" | "para-alguien-mas" | null;
@@ -43,6 +42,9 @@ interface AppState {
 
   // Reset all data
   resetStore: () => void;
+
+  // Reset selected plan data
+  resetSelectedPlans: () => void;
 }
 
 export const useAppStore = create<AppState>()(
@@ -63,8 +65,6 @@ export const useAppStore = create<AppState>()(
       selectedPlanPrice: 0,
       setSelectedPlan: (planName, planPrice) =>
         set({ selectedPlan: planName, selectedPlanPrice: planPrice }),
-      clearSelectedPlan: () =>
-        set({ selectedPlan: null, selectedPlanPrice: 0 }),
 
       // Insurance type selection
       selectedInsuranceType: null,
@@ -77,6 +77,13 @@ export const useAppStore = create<AppState>()(
           plans: [],
           selectedPlan: null,
           selectedInsuranceType: null,
+        }),
+
+      resetSelectedPlans: () =>
+        set({
+          selectedPlan: null,
+          selectedInsuranceType: null,
+          selectedPlanPrice: 0,
         }),
     }),
     {

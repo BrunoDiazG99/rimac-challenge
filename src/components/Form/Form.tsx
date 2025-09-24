@@ -4,6 +4,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { validateUser } from "../../utils/allowedUsers";
 import { useAppStore } from "../../store/useAppStore";
 import { calculateAge } from "../../utils/utils.ts";
+import { apiService } from "../../services/apiService";
 
 interface FormData {
   docType: "DNI" | "RUC";
@@ -100,18 +101,8 @@ export const Form = () => {
 
   const fetchUserData = async () => {
     try {
-      const userResponse = await fetch(
-        "https://rimac-front-end-challenge.netlify.app/api/user.json"
-      );
-      const userData = await userResponse.json();
-
-      const plansResponse = await fetch(
-        "https://rimac-front-end-challenge.netlify.app/api/plans.json"
-      );
-      const plansData = await plansResponse.json();
-
-      console.log("User Data:", userData);
-      console.log("Plans Data:", plansData);
+      const userData = await apiService.getUserByDocument(formData.docNumber);
+      const plansData = await apiService.getPlans();
 
       const userAge = calculateAge(userData.birthDay);
 
@@ -324,16 +315,23 @@ export const Form = () => {
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>Aplican Términos y Condiciones</h3>
+            <header className="modal-header">
               <button
                 className="modal-close"
                 onClick={() => setShowModal(false)}
-                aria-label="Cerrar modal"
               >
-                ×
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M18 6L6 18M6 6l12 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
-            </div>
+              <h3>Aplican Términos y Condiciones</h3>
+            </header>
             <div className="modal-body">
               <p>
                 Encontrarás información importante sobre tus derechos y

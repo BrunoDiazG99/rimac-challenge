@@ -8,19 +8,16 @@ import { useAppStore } from "../../store/useAppStore";
 
 export function ResumePage() {
   const navigate = useNavigate();
-  const { userData, plans, selectedPlan } = useAppStore();
-
-  // Find the selected plan details
-  const selectedPlanDetails = plans.find(
-    (plan) => plan.name.toLowerCase() === selectedPlan?.toLowerCase()
-  );
+  const { userData, selectedPlan, selectedPlanPrice, resetSelectedPlans } =
+    useAppStore();
 
   const handleBackToPlans = () => {
+    resetSelectedPlans();
     navigate({ to: "/plans" });
   };
 
   // If no user data or selected plan, redirect to home
-  if (!userData || !selectedPlanDetails) {
+  if (!userData || !selectedPlan) {
     return (
       <div className="resume-page">
         <Header />
@@ -78,7 +75,11 @@ export function ResumePage() {
           <h2 className="resume-title">Resumen del seguro</h2>
 
           {/* Resume Card */}
-          <ResumeCard userData={userData} selectedPlan={selectedPlanDetails} />
+          <ResumeCard
+            userData={userData}
+            selectedPlan={selectedPlan}
+            selectedPlanPrice={selectedPlanPrice}
+          />
         </div>
       </main>
 

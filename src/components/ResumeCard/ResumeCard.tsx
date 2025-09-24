@@ -1,12 +1,17 @@
 import "./ResumeCard.scss";
-import type { UserData, Plan } from "../../store/useAppStore";
+import type { UserData } from "../../store/useAppStore";
 
 interface ResumeCardProps {
   userData: UserData;
-  selectedPlan: Plan;
+  selectedPlan: string;
+  selectedPlanPrice: number;
 }
 
-export const ResumeCard = ({ userData, selectedPlan }: ResumeCardProps) => {
+export const ResumeCard = ({
+  userData,
+  selectedPlan,
+  selectedPlanPrice,
+}: ResumeCardProps) => {
   const fullName = `${userData.name} ${userData.lastName}`;
 
   return (
@@ -42,9 +47,9 @@ export const ResumeCard = ({ userData, selectedPlan }: ResumeCardProps) => {
       {/* Selected Plan Section */}
       <div className="info-section">
         <h4 className="section-title">Plan elegido</h4>
-        <p className="plan-name">{selectedPlan.name}</p>
+        <p className="plan-name">{selectedPlan}</p>
         <p className="plan-cost">
-          Costo del Plan: S/ {selectedPlan.price} al mes
+          Costo del Plan: $ {selectedPlanPrice.toFixed(2)} al mes
         </p>
       </div>
     </div>
