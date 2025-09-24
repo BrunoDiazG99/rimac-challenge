@@ -180,6 +180,20 @@ export const Form = () => {
 
   return (
     <section className="form-container">
+      {/* Mobile Header - Hidden on Desktop */}
+      <div className="mobile-header">
+        <div className="mobile-text-content">
+          <div className="badge">Seguro Salud Flexible</div>
+          <h1>Creado para ti y tu familia</h1>
+        </div>
+        <img
+          src={`${import.meta.env.BASE_URL}hero-image.webp`}
+          alt="Hero"
+          className="mobile-hero-img"
+        />
+      </div>
+
+      {/* Desktop Layout */}
       <div className="form-content container">
         <div className="hero-image">
           <img

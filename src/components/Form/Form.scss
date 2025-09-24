@@ -5,7 +5,76 @@
   background: #f8fafc;
   font-family: var(--font-home);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+
+  // Mobile Header - Hidden on desktop, visible on mobile
+  .mobile-header {
+    display: none;
+    
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 24px 32px;
+      margin: 0 16px;
+      background: #f8fafc;
+      border-bottom: 2px solid var(--neutrals2);
+      
+      .mobile-hero-img {
+        width: 136px;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      
+      .mobile-text-content {
+        flex: 1;
+        
+        .badge {
+          background: linear-gradient(90deg, #00f4e2, #00ff7f);
+          color: var(--gray1);
+          font-size: 14px;
+          font-weight: bold;
+          font-family: var(--font-home), sans-serif;
+          padding: 4px 8px;
+          margin-bottom: 12px;
+          border-radius: 4px;
+          display: inline-block;
+          text-align: center;
+        }
+        
+        h1 {
+          font-size: 24px;
+          font-weight: bold;
+          color: var(--gray1);
+          margin: 0;
+          line-height: 1.2;
+        }
+      }
+    }
+    
+    @media (max-width: 480px) {
+      padding: 24px 20px 24px;
+      gap: 16px;
+      
+      .mobile-hero-img {
+        width: 120px;
+      }
+      
+      .mobile-text-content {
+        .badge {
+          font-size: 13px;
+          margin-bottom: 10px;
+        }
+        
+        h1 {
+          font-size: 22px;
+        }
+      }
+    }
+  }
   
   .form-content {
     display: flex;
@@ -24,12 +93,13 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
-      gap: 24px;
-      padding: 32px 24px;
+      gap: 0;
+      padding: 0 24px 32px;
+      min-height: auto;
     }
 
     @media (max-width: 480px) {
-      padding: 24px 20px;
+      padding: 0 20px 24px;
     }
 
     .hero-image {
@@ -38,16 +108,16 @@
       justify-content: center;
       align-items: center;
       
+      @media (max-width: 768px) {
+        display: none;
+      }
+      
       .hero-img {
         width: 100%;
         max-width: 500px;
         height: auto;
         border-radius: 8px;
         object-fit: cover;
-        
-        @media (max-width: 768px) {
-          max-width: 100%;
-        }
       }
     }
 
@@ -76,6 +146,10 @@
           border-radius: 4px;
           display: inline-block;
           text-align: center;
+          
+          @media (max-width: 768px) {
+            display: none;
+          }
         }
         
         h1 {
@@ -86,7 +160,7 @@
           line-height: 1.2;
           
           @media (max-width: 768px) {
-            font-size: 28px;
+            display: none;
           }
         }
         
@@ -99,7 +173,8 @@
           
           @media (max-width: 768px) {
             font-size: 13px;
-            margin-bottom: 24px;
+            margin-bottom: 0px;
+            margin-top: 24px;
           }
         }
       }
