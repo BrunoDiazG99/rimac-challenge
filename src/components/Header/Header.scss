@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 64px;
-  padding: 2px 20px;
+  height: 72px;
+  padding: 6px 20px;
   box-sizing: border-box;
   background: white;
   border-bottom: 1px solid #e5e7eb;
@@ -25,11 +25,11 @@
 
   // Responsive adjustments
   @media (max-width: 768px) {
-    height: 56px;
+    height: 64px;
   }
 
   @media (max-width: 480px) {
-    height: 48px;
+    height: 56px;
   }
 
   .logo {

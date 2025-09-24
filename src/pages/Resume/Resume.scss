@@ -10,7 +10,7 @@
 }
 
 .resume-container {
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
 .back-button {
@@ -62,7 +62,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .resume-container {
-    padding: 24px 0;
+    padding: 24px;
   }
   
   .resume-title {
@@ -73,7 +73,7 @@
 
 @media (max-width: 480px) {
   .resume-container {
-    padding: 20px 0;
+    padding: 20px;
   }
   
   .resume-title {
